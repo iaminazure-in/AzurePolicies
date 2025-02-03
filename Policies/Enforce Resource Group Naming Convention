@@ -1,0 +1,25 @@
+{
+    "displayName": "Enforce Resource Group Naming Convention",
+    "mode": "All",
+    "parameters": {},
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+          },
+          {
+            "field": "name",
+            "notMatch": "fleet-???-???-###"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    },
+    "versions": [
+      "1.0.1"
+    ]
+}
